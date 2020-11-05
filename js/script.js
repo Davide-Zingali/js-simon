@@ -1,7 +1,6 @@
 // Un alert espone 5 numeri casuali diversi.
 // Dopo 30 secondi l’utente deve inserire, un prompt alla volta, i numeri che ha visto precedentemente.
 // Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
-// alert
 
 // array random
 var arrayRandom = [];
@@ -11,7 +10,7 @@ while (arrayRandom.length < 5) {
     var numeriRan = Math.floor(Math.random() * 50) + 1;
 
     if (arrayRandom.includes(numeriRan)) {
-        console.log('numero doppio trovato');
+        console.log('numero doppio trovato consolelog');
     } else {
         arrayRandom.push(numeriRan);
     }
@@ -21,9 +20,45 @@ while (arrayRandom.length < 5) {
 var inputUtente = alert('Memorizza i 5 numeri per inserirli dopo: ' + arrayRandom);
 
 
+// array Utente
+var arrayUtente = [];
 
+// dopo 30 secondi
+setTimeout(timer, 3000);
 
+function timer() {
+    // numeri Utente
+    while (arrayUtente.length < 5) {
+        var numeriInput = parseInt(prompt('Inserisci un numero alla volta'));
 
+        if (arrayUtente.includes(numeriInput)) {
+            console.log('Numero già inserito');
+        } else {
+            arrayUtente.push(numeriInput);
+        }
+    }
+    console.log('Array utente: ' + arrayUtente);
+
+    // --------------------------------------------------------
+
+    // confronto tra array per verificare se azzeccati dei numeri
+    // array di confronto
+    var arrayNumeriNonTrovati = [];
+    var arrayConfrontoRicordati = [];
+    var contatore = 0
+    for (var i = 0; i < arrayRandom.length; i++) {
+        
+        if (arrayRandom.includes(arrayUtente[i])) {
+            arrayConfrontoRicordati.push(arrayUtente[i]);
+            contatore++;
+        } else {
+            arrayNumeriNonTrovati.push(arrayUtente[i]);
+        }
+        
+    }
+    console.log('Quantità numeri ricordati: ' + contatore);
+    console.log('Elenco numeri ricordati: ' + arrayConfrontoRicordati);
+}
 
 
 
