@@ -24,7 +24,7 @@ var inputUtente = alert('Memorizza i 5 numeri per inserirli dopo: ' + arrayRando
 var arrayUtente = [];
 
 // dopo 30 secondi
-setTimeout(timer, 3000);
+setTimeout(timer, 30000);
 
 function timer() {
     // numeri Utente
@@ -32,7 +32,7 @@ function timer() {
         var numeriInput = parseInt(prompt('Inserisci un numero alla volta'));
 
         if (arrayUtente.includes(numeriInput)) {
-            console.log('Numero già inserito');
+            alert('Non puoi inserire doppioni di numeri')
         } else {
             arrayUtente.push(numeriInput);
         }
@@ -56,8 +56,9 @@ function timer() {
         }
         
     }
-    console.log('Quantità numeri ricordati: ' + contatore);
-    console.log('Elenco numeri ricordati: ' + arrayConfrontoRicordati);
+    alert('Quantità di numeri ricordati: ' + contatore + '\nElenco numeri ricordati: ' + arrayConfrontoRicordati)
+    // console.log('Quantità numeri ricordati: ' + contatore);
+    // console.log('Elenco numeri ricordati: ' + arrayConfrontoRicordati);
 }
 
 
